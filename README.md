@@ -18,3 +18,10 @@ Result:
 git add .
 git commit -m "Added React boilerplate. Pasted code from tutorial."
 git push
+
+Result:
+    Next player: X
+    3x3 table with numbers from 0 to 8 in each cell
+git add .
+git commit -m "Passed 'props' from parent component to child component."
+git push

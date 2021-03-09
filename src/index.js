@@ -4,15 +4,15 @@ import './index.css';
 class Square extends React.Component {
     render() {
         return (
-        <button className="square">
-            {/* TODO */}
-        </button>
+            <button className="square">
+                {this.props.value}
+            </button>
         );
     }
 }
 class Board extends React.Component {
     renderSquare(i) {
-        return <Square />;
+        return <Square value={i} />;
     }
     render() {
         const status = 'Next player: X';
@@ -53,6 +53,10 @@ class Game extends React.Component {
         );
     }
 }
+// class C extends React.Component { render() { return ( <p>{ this.props.a }</p> ); } }
+// class B extends React.Component { f( i ) { return <C a={i} />; } render() { return ( <div>{this.f( 0 ) }{ this.f( 1 ) }</div> ); } }
+// class B extends React.Component {  }
+// class Game extends React.Component { render() { return ( <div className="A"><B /></div> ); } }
 ReactDOM.render(
     <Game />,
     document.getElementById('root')
