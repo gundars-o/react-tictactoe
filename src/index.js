@@ -2,10 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 class Square extends React.Component {
+    constructor( props ) {
+        super( props );
+        this.state = {
+            value: null,
+        };
+    }
     render() {
         return (
-            <button className="square">
-                {this.props.value}
+            <button
+                className="square"
+                onClick={ () => this.setState( { value: 'X' } ) }
+            >
+                { this.state.value }
             </button>
         );
     }
@@ -53,9 +62,10 @@ class Game extends React.Component {
         );
     }
 }
-// class C extends React.Component { render() { return ( <p>{ this.props.a }</p> ); } }
+// https://reactjs.org/tutorial/tutorial.html#passing-data-through-props
+// class C extends React.Component { constructor( props ) { super( props ); this.state = { b: this.props.a }; } render() { return ( <p onClick={ () => this.setState( { b: 'X' } ) }>{ this.state.b }</p> ); } }
 // class B extends React.Component { f( i ) { return <C a={i} />; } render() { return ( <div>{this.f( 0 ) }{ this.f( 1 ) }</div> ); } }
-// class B extends React.Component {  }
+// // class B extends React.Component {  }
 // class Game extends React.Component { render() { return ( <div className="A"><B /></div> ); } }
 ReactDOM.render(
     <Game />,
