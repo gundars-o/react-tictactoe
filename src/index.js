@@ -2,26 +2,37 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 class Square extends React.Component {
-    constructor( props ) {
-        super( props );
-        this.state = {
-            value: null,
-        };
-    }
     render() {
         return (
             <button
                 className="square"
-                onClick={ () => this.setState( { value: 'X' } ) }
+                onClick={ () => this.props.onClick() }
             >
-                { this.state.value }
+                { this.props.value }
             </button>
         );
     }
 }
 class Board extends React.Component {
+    constructor( props ) {
+        super( props );
+        this.state = {
+            squares: Array( 9 ).fill( null ),
+        };
+    }
+    handleClick( i ) {
+        // this.state.squares[ i ] = 'X' /* Changes the value of the state of 'Board' but doesn't render any Square */;
+        const squares = this.state.squares.slice();
+        squares[ i ] = 'X';
+        this.setState( { squares: squares } );
+    }
     renderSquare(i) {
-        return <Square value={i} />;
+        return (
+            <Square
+                value={ this.state.squares[ i ] }
+                onClick={ () => this.handleClick( i ) }
+            />
+        );
     }
     render() {
         const status = 'Next player: X';
@@ -62,10 +73,7 @@ class Game extends React.Component {
         );
     }
 }
-// https://reactjs.org/tutorial/tutorial.html#passing-data-through-props
-// class C extends React.Component { constructor( props ) { super( props ); this.state = { b: this.props.a }; } render() { return ( <p onClick={ () => this.setState( { b: 'X' } ) }>{ this.state.b }</p> ); } }
-// class B extends React.Component { f( i ) { return <C a={i} />; } render() { return ( <div>{this.f( 0 ) }{ this.f( 1 ) }</div> ); } }
-// // class B extends React.Component {  }
+// https://reactjs.org/tutorial/tutorial.html#lifting-state-up
 // class Game extends React.Component { render() { return ( <div className="A"><B /></div> ); } }
 ReactDOM.render(
     <Game />,

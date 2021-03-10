@@ -32,3 +32,10 @@ Result:
 git add .
 git commit -m "Enabled writing 'X' in empty cells by clicking on it."
 git push
+
+Result:
+    Next player: X
+    Clicking on each empty cell of 3x3 table the 'X' appears in this cell.
+git add .
+git commit -m "State lifted to 'Board' component."
+git push
