@@ -86,3 +86,7 @@ Result:
 git add .
 git commit -m "Enabled showing history buttons."
 git push
+
+git add .
+git commit -m "Enabled traveling in history."
+git push
