@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-class Square extends React.Component {
-    render() {
-        return (
-            <button
-                className="square"
-                onClick={ () => this.props.onClick() }
-            >
-                { this.props.value }
-            </button>
-        );
-    }
+function Square( props ) {
+    return (
+        <button
+            className="square"
+            // onClick={ () => props.onClick() }
+            onClick={ props.onClick }
+        >
+            { props.value }
+        </button>
+    );
 }
 class Board extends React.Component {
     constructor( props ) {
@@ -73,7 +72,7 @@ class Game extends React.Component {
         );
     }
 }
-// https://reactjs.org/tutorial/tutorial.html#lifting-state-up
+// https://reactjs.org/tutorial/tutorial.html#function-components
 // class Game extends React.Component { render() { return ( <div className="A"><B /></div> ); } }
 ReactDOM.render(
     <Game />,

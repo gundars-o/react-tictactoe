@@ -39,3 +39,10 @@ Result:
 git add .
 git commit -m "State lifted to 'Board' component."
 git push
+
+Result:
+    Next player: X
+    Clicking on each empty cell of 3x3 table the 'X' appears in this cell.
+git add .
+git commit -m "The 'Square' modified to be a function component."
+git push
