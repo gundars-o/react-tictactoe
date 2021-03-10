@@ -46,3 +46,10 @@ Result:
 git add .
 git commit -m "The 'Square' modified to be a function component."
 git push
+
+Result:
+    Next player: X or Next player: O
+    Clicking on each empty cell of 3x3 table the 'X' or 'O' appears in this cell.
+git add .
+git commit -m "Enabled taking turns."
+git push

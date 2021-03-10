@@ -17,13 +17,17 @@ class Board extends React.Component {
         super( props );
         this.state = {
             squares: Array( 9 ).fill( null ),
+            xIsNext: true,
         };
     }
     handleClick( i ) {
         // this.state.squares[ i ] = 'X' /* Changes the value of the state of 'Board' but doesn't render any Square */;
         const squares = this.state.squares.slice();
-        squares[ i ] = 'X';
-        this.setState( { squares: squares } );
+        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        this.setState( {
+            squares: squares,
+            xIsNext: !this.state.xIsNext,
+        } );
     }
     renderSquare(i) {
         return (
@@ -34,7 +38,7 @@ class Board extends React.Component {
         );
     }
     render() {
-        const status = 'Next player: X';
+        const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         return (
             <div>
                 <div className="status">{status}</div>
@@ -72,7 +76,7 @@ class Game extends React.Component {
         );
     }
 }
-// https://reactjs.org/tutorial/tutorial.html#function-components
+// https://reactjs.org/tutorial/tutorial.html#taking-turns
 // class Game extends React.Component { render() { return ( <div className="A"><B /></div> ); } }
 ReactDOM.render(
     <Game />,
