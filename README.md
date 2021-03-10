@@ -69,3 +69,11 @@ Result:
 git add .
 git commit -m "Enabled not overwriting existing mark. Enabled not continuing if the winner is calculated."
 git push
+
+Result:
+    Next player: X or Next player: O or Winner: X or O
+    Clicking on each empty cell of 3x3 table the 'X' or 'O' appears in this cell.
+    Not overwriting existing mark. Not continuing if the winner is calculated.
+git add .
+git commit -m "State lifted to 'Game' component."
+git push
