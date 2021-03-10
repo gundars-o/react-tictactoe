@@ -53,3 +53,19 @@ Result:
 git add .
 git commit -m "Enabled taking turns."
 git push
+
+Result:
+    Next player: X or Next player: O or Winner: X or O
+    Clicking on each empty cell of 3x3 table the 'X' or 'O' appears in this cell.
+    A click on the other players marked cell modifies to current players mark.
+    Game does not end with the anouncing the winner.
+git add .
+git commit -m "Enabled anouncing the winner."
+git push
+
+Result:
+    Next player: X or Next player: O or Winner: X or O
+    Clicking on each empty cell of 3x3 table the 'X' or 'O' appears in this cell.
+git add .
+git commit -m "Enabled not overwriting existing mark. Enabled not continuing if the winner is calculated."
+git push
